@@ -1,0 +1,135 @@
+{% comment %} <!DOCTYPE html> {% endcomment %}
+  <!DOCTYPE html>
+{% load static %}
+
+<html>
+
+
+
+    <head>
+      <script src="https://kit.fontawesome.com/577845f6a5.js" 
+      crossorigin="anonymous">
+  </script>
+
+  <!-- Optional JavaScript -->
+  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js">
+  </script>
+  <script src=
+"https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js">
+  </script>
+      {% comment %} <link href="//netdna.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css"> {% endcomment %}
+    {% comment %} <script src="//netdna.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script> {% endcomment %}
+    {% comment %} <script src="//code.jquery.com/jquery-1.11.1.min.js"></script> {% endcomment %}
+    <!------ Include the above in your HEAD tag ---------->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+     
+    <link rel="stylesheet" href="{% static 'css/style.css'%} ">
+  
+  </head>
+      <body>
+        
+        <form action="add_product" method="POST" class="form-horizontal">
+          {% csrf_token %}
+          <fieldset>
+      
+              <!-- Form Name -->
+              
+              <legend>PRODUCTS</legend>
+              
+              <!-- Text input-->
+              
+              <div class="form-group">
+                <label class="col-md-4 control-label" for="product_code">PRODUCT CODE</label>  
+                <div class="col-md-4">
+                <input id="product_code" name="product_code" placeholder="PRODUCT CODE" class="form-control input-md" required="" type="text">
+                  
+                </div>
+              </div>
+            
+              <!-- Text input-->
+              <div class="form-group">
+                <label class="col-md-4 control-label" for="product_name">PRODUCT NAME</label>  
+                <div class="col-md-4">
+                <input id="product_name" name="product_name" placeholder="PRODUCT NAME" class="form-control input-md" required="" type="text">
+                  
+                </div>
+              </div>
+              
+        <select name='product_category' class="custom-select mt-2"
+              style="width:150px;">
+              {% for c in c %}
+
+          <option>{{c.category_name}}</option>
+          {% endfor %}
+          
+        </select>
+             
+              
+              <!-- Text input-->
+              <div class="form-group">
+                <label class="col-md-4 control-label" for="product_quantity">AVAILABLE QUANTITY</label>  
+                <div class="col-md-4">
+                <input id="product_quantity" name="product_quantity" placeholder="AVAILABLE QUANTITY" class="form-control input-md" required="" type="text">
+                  
+                </div>
+              </div>
+              
+              
+              
+              
+        <select name='product_seller' class="custom-select mt-2"
+              style="width:150px;">
+              {% for c in s %}
+
+          <option>{{c.seller_name}}</option>
+          {% endfor %}
+          
+        </select>
+              
+              <div class="form-group">
+                  <label class="col-md-4 control-label" for="product_purchase_price">Product Purchase Price</label>  
+                  <div class="col-md-4">
+                  <input id="product_purchase_price" name="product_purchase_price" placeholder="product_purchase_price" class="form-control input-md" required="" type="text">
+                    
+                  </div>
+              </div>
+          
+              <div class="form-group">
+                  <label class="col-md-4 control-label" for="product_selling_price">Product Selling Price</label>  
+                  <div class="col-md-4">
+                  <input id="product_selling_price" name="product_selling_price" placeholder="product_selling_price" class="form-control input-md" required="" type="text">
+                    
+                  </div>
+              </div>
+          
+
+        <select name='origin' class="custom-select mt-2"
+              style="width:150px;">
+              {% for c in o %}
+
+          <option>{{c.origin_name}}</option>
+          {% endfor %}
+          
+        </select>
+      
+              
+              <!-- Button -->
+              <div class="form-group">
+                <label class="col-md-4 control-label" for="singlebutton">Single Button</label>
+                <div class="col-md-4">
+                  <button id="button" name="singlebutton" class="btn btn-primary">Button</button>
+                </div>
+                </div>
+              
+              </fieldset>
+      </form>
+      
+        
+           
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.10.2/dist/umd/popper.min.js" integrity="sha384-7+zCNj/IqJ95wo16oMtfsKbZ9ccEh31eOz1HGyDuCQ6wgnyJNSYdrPa03rtR1zdB" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.min.js" integrity="sha384-QJHtvGhmr9XOIpI6YVutG+2QOK9T+ZnN4kzFN1RtK3zEFEIsxhlmWl5/YESvpZ13" crossorigin="anonymous"></script>
+
+</body>
+</html>
+
+kisu ase na
