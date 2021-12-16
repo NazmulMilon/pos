@@ -53,11 +53,11 @@
                 </tr>
             </thead>                        
             <tbody>      
-                {% for cat in category %}                          
+                {% for category in categories %}                          
                     <tr>                                                                                    
-                      <td>{{cat.category_name}}</td>
+                      <td>{{category.category_name}}</td>
 
-                      <td><a class="text-success" href="{% url 'update_category' cat.id %}">Update</a> || <a class="text-danger" href="{% url 'delete_category' cat.id %}">Delete</a></td>                      
+                      <td><a class="text-success" href="{% url 'update_category' category.id %}">Update</a> || <a class="text-danger" href="{% url 'delete_category' category.id %}">Delete</a></td>                      
                     </tr>                  
                 {% endfor %}                
             </tbody>

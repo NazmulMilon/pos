@@ -45,12 +45,12 @@
           </div>                  
         </div>
         <hr>
-        <form action="/update_origin/{{ u.id }}/" class="form" method="POST">
+        <form action="/update_origin/{{ update_origin.id }}/" class="form" method="POST">
           {% csrf_token %}
             <div class="row">
                 <div class="form-group col-sm-6">
                     <label for="category" class="text-secondary"><small>Origin Name*</small></label>
-                    <input type="text" id="category" class="form-control" name="origin_name" value="{{ u.origin_name }}" placeholder="{{ u.origin_name }}"">
+                    <input type="text" id="category" class="form-control" name="origin_name" value="{{ update_origin.origin_name }}" placeholder="{{ update_origin.origin_name }}"">
                 </div>
             </div>
             <section class="content">        

@@ -15,7 +15,7 @@ urlpatterns=[
 
     #path('add_seller', views.add_seller, name='add_seller'),
     path('add_product', views.add_product, name='add_product'),
-    path('show_product', views.show_product, name='show_product'),
+    path('list_product', views.list_product, name='list_product'),
     path('update_product/<id>/', views.update_product, name='update_product'),
     path('delete_product/<id>/', views.delete_product, name='delete_product'),
 

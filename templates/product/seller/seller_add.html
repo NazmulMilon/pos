@@ -63,9 +63,9 @@
           
           <select name='seller_name' class="custom-select mt-2"
               style="width:150px;">
-              {% for c in seller %}
+              {% for seller in sellers %}
 
-          <option value="{{c.id}}" >{{c.user}}</option>
+          <option value="{{seller.id}}" >{{seller.user}}</option>
           {% endfor %}
           
         </select>

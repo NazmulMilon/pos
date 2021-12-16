@@ -45,12 +45,12 @@
           </div>                  
         </div>
         <hr>
-        <form action="/update_category/{{ u.id }}/" class="form" method="POST">
+        <form action="/update_category/{{ categories.id }}/" class="form" method="POST">
           {% csrf_token %}
             <div class="row">
                 <div class="form-group col-sm-6">
                     <label for="category" class="text-secondary"><small>Category Name*</small></label>
-                    <input type="text" id="category" class="form-control" name="category_name" value="{{ u.category_name }}" placeholder="{{ u.category_name }}"">
+                    <input type="text" id="category" class="form-control" name="category_name" value="{{ categories.category_name }}" placeholder="{{ categories.category_name }}"">
                 </div>
             </div>
             <section class="content">        

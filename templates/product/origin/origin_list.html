@@ -52,10 +52,10 @@
                 </tr>
             </thead>                        
             <tbody>      
-                {% for cat in origin %}                          
+                {% for origin in origins %}                          
                     <tr>                                                                                    
-                      <td>{{cat.origin_name}}</td>
-                      <td><a class="text-success" href="{% url 'update_origin' cat.id %}">Update</a> || <a class="text-danger" href="{% url 'delete_origin' cat.id %}">Delete</a></td>                      
+                      <td>{{origin.origin_name}}</td>
+                      <td><a class="text-success" href="{% url 'update_origin' origin.id %}">Update</a> || <a class="text-danger" href="{% url 'delete_origin' origin.id %}">Delete</a></td>                      
                     </tr>                  
                 {% endfor %}                
             </tbody>

@@ -7,84 +7,85 @@ from django.contrib import messages
 #from .models import *
 # Create your views here.
 
+# category details
 def add_category(request):
-    n=Category()
+    new_obj=Category()
     if request.method=="POST":
-        n.category_name=request.POST['category_name']
+        new_obj.category_name=request.POST['category_name']
         #new_origin=Origin(origin_name)
-        n.save()
+        new_obj.save()
         messages.success(request, 'Origin has successfully done.')
-        #return redirect('/')
-    return render(request, 'product/category_add.html')
+        return redirect('list_category')
+    return render(request, 'product/category/category_add.html')
 
 
 def list_category(request):
     show_category=Category.objects.all()
     context={
-        'category': show_category
+        'categories': show_category
     }
-    return render(request, 'product/category_list.html', context)
+    return render(request, 'product/category/category_list.html', context)
 
 def update_category(request, id):
-    u = Category.objects.get(id=id)
+    update = Category.objects.get(id=id)
         
     if request.method=="POST":
         #  s=request.POST.get('category_name')
         # u=Category(category_name=s)
 
-        u.category_name=request.POST.get('category_name')
-        u.save()
+        update.category_name=request.POST.get('category_name')
+        update.save()
         return redirect('list_category')
 
     context = {
-        'u': u
+        'categories': update
     }
-    return render(request, 'product/category_update.html', context)
+    return render(request, 'product/category/category_update.html', context)
 
 def delete_category(request, id):
-    f=Category.objects.get(id=id)
-    f.delete()
+    delete_obj=Category.objects.get(id=id)
+    delete_obj.delete()
     return redirect('list_category')
 
 
 #Origin_details.........
 def add_origin(request):
-    n=Origin()
+    new_obj=Origin()
     if request.method=="POST":
-        n.origin_name=request.POST['origin_name']
+        new_obj.origin_name=request.POST['origin_name']
         #new_origin=Origin(origin_name)
-        n.save()
+        new_obj.save()
         messages.success(request, 'Origin has successfully done.')
-        #return redirect('/')
-    return render(request, 'product/origin_add.html')
+        return redirect('list_origin')
+    return render(request, 'product/origin/origin_add.html')
 
 def list_origin(request):
     show_origin=Origin.objects.all()
     context={
-        'origin': show_origin
+        'origins': show_origin
     }
-    return render(request, 'product/origin_list.html', context)
+    return render(request, 'product/origin/origin_list.html', context)
 
 
 def update_origin(request, id):
-    u = Origin.objects.get(id=id)
+    update = Origin.objects.get(id=id)
         
     if request.method=="POST":
         #  s=request.POST.get('category_name')
         # u=Category(category_name=s)
 
-        u.origin_name=request.POST.get('origin_name')
-        u.save()
+        update.origin_name=request.POST.get('origin_name')
+        update.save()
         return redirect('list_origin')
 
     context = {
-        'u': u
+        'update_origin': update
     }
-    return render(request, 'product/origin_update.html', context)
+    return render(request, 'product/origin/origin_update.html', context)
 
 def delete_origin(request, id):
-    f=Origin.objects.get(id=id)
-    f.delete()
+    delete_object=Origin.objects.get(id=id)
+    delete_object.delete()
     return redirect('list_origin')
 
 
@@ -155,21 +156,22 @@ def add_product(request):
             # s=Category(category_name=product_category)
             # new_product.save()
             # s.save()
-            return HttpResponse('Your Product has successfully Added')
-    con={
-        'category': category,
-        'seller': seller,
-        'origin': origin,
+            #return HttpResponse('Your Product has successfully Added')
+            return redirect('list_product')
+    context={
+        'categories': category,
+        'sellers': seller,
+        'origins': origin,
     }
-    return render(request, 'product/product_add.html',con)
+    return render(request, 'product/product/product_add.html',context)
     
 
-def show_product(request):
+def list_product(request):
     show_product=Product.objects.all()
     context={
         'product': show_product
     }
-    return render(request, 'product/product_list.html', context)
+    return render(request, 'product/product/product_list.html', context)
 
 
 def update_product(request, id):
@@ -177,9 +179,7 @@ def update_product(request, id):
     categories=Category.objects.all()
     sellers=Seller.objects.all()
     origins=Origin.objects.all()
-    #s=request.POST.get('product_origin')
 
-    #ss=Origin.objects.get(id=s)
     if request.method=="POST":
 
         update.product_code=request.POST.get('product_code')
@@ -204,6 +204,7 @@ def update_product(request, id):
         update.product_origin = prod_origin
 
         update.save()
+        return redirect('list_product')
 
     context = {
         'update': update,
@@ -211,10 +212,10 @@ def update_product(request, id):
         'sellers':sellers,
         'origins': origins,
     }
-    return render(request, 'product/product_update.html', context)
+    return render(request, 'product/product/product_update.html', context)
 
 
 def delete_product(request, id):
     delete_object=Product.objects.get(id=id)
     delete_object.delete()
-    return redirect('show_product')
+    return redirect('list_product')

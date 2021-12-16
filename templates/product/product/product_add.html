@@ -38,7 +38,7 @@
                 <div class="card-tools">
                     <ul class="nav nav-pills ml-auto">                   
                     <li class="nav-item">
-                        <a class="nav-link active" href="{% url 'show_product' %}">Product List</a>
+                        <a class="nav-link active" href="{% url 'list_product' %}">Product List</a>
                     </li>
                   </ul>
                 </div>
@@ -62,8 +62,8 @@
                 <div class="form-group col-sm-6">
                   <label for="category" class="text-secondary"><small>Category Name*</small></label>
                   <select name="product_category" id="" class="form-control" required>
-                      {% for c in category %}                          
-                          <option value="{{c.id}}">{{c.category_name}}                                     
+                      {% for category in categories %}                          
+                          <option value="{{category.id}}">{{category.category_name}}                                     
                           </option>                                                   
                       {% endfor %}                        
                   </select>                   
@@ -77,8 +77,8 @@
             <div class="form-group col-sm-6">
               <label for="category" class="text-secondary"><small>Seller Name*</small></label>
               <select name="product_seller" id="" class="form-control" required>
-                  {% for c in seller %}                          
-                      <option value="{{c.id}}">{{c.seller_name}}                                     
+                  {% for seller in sellers %}                          
+                      <option value="{{seller.id}}">{{seller.seller_name}}                                     
                       </option>                                                   
                   {% endfor %}                        
               </select>                   
@@ -98,8 +98,8 @@
             <div class="form-group col-sm-6">
               <label for="country" class="text-secondary"><small>Country Name*</small></label>
               <select name="product_origin" id="" class="form-control" required>
-                  {% for c in origin %}                          
-                      <option value="{{c.id}}">{{c.origin_name}}                                     
+                  {% for origin in origins %}                          
+                      <option value="{{origin.id}}">{{origin.origin_name}}                                     
                       </option>                                                   
                   {% endfor %}                        
               </select>                   
