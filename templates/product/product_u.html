@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+
+
+<!-- head -->
+{% include 'head.html' %}
+
+<body class="hold-transition sidebar-mini layout-fixed">
+<div class="wrapper">
+
+  <!-- Preloader -->
+  <div class="preloader flex-column justify-content-center align-items-center">
+    <img class="animation__shake" src="{% static 'dist/img/AdminLTELogo.png' %}" alt="AdminLTELogo" height="60" width="60">
+  </div>
+
+<!-- Navbar -->
+{% include 'navbar.html' %}
+<!-- /.navbar -->
+
+<!-- Main Sidebar Container -->
+
+{% include 'sidebar.html' %}
+
+
+  <!-- Content Wrapper. Contains page content -->
+
+  <body>
+
+
+
+
+    <div class="container">
+        <br>
+        <h2>Product Update</h2>
+        <hr>
+    <div class='row'>
+      <div class='col-4 offset-2'>
+        {% comment %} action="/update_product/{{ u.id }}"action="/update_product/{{ u.id }}" {% endcomment %}
+        <form  method="POST">
+    
+            {% csrf_token %}
+            <label class="form-group" for="name">Product Code: </label>
+            <input class="form-control" type="text" name="product_code" value="{{ u.product_code }}" placeholder="{{ u.product_code }}">
+    
+            <label class="form-group" for="phone">Product Name: </label>
+            <input class="form-control" type="text" name="product_name" value="{{ u.product_name }}" placeholder="{{ u.product_name }}">
+    
+            <label class="form-group" for="work_info">Product Category: </label>
+            
+            <select name="product_category" id="" class="form-control" required>
+              {% for c in c %}                          
+                  <option value="{{c.id}}"  >{{c.category_name}}                                
+                  </option>                                                   
+              {% endfor %}  
+     
+          </select>   
+            {% comment %} <input class="form-control" type="text" name="product_category" value="{{ c.category_name }}" placeholder="{{ u.product_category }}"> {% endcomment %}
+            
+            <label class="form-group" for="name">Quantity: </label>
+            <input class="form-control" type="text" name="product_quantity" value="{{ u.product_quantity }}" placeholder="{{ u.product_quantity }}">
+    
+            <label class="form-group" for="name">Seller: </label>
+            <input class="form-control" type="text" name="product_seller" value="{{ u.product_seller }}" placeholder="{{ u.product_seller }}">
+    
+            <label class="form-group" for="name">Purchase Price: </label>
+            <input class="form-control" type="text" name="product_purchase_price" value="{{ u.product_purchase_price }}" placeholder="{{ u.product_purchase_price }}">
+    
+            <label class="form-group" for="phone">Selling Price: </label>
+            <input class="form-control" type="text" name="product_selling_price" value="{{ u.product_selling_price }}" placeholder="{{ e.product_selling_price }}">
+    
+            <label class="form-group" for="work_info">Origin: </label>
+            <input class="form-control" type="text" name="product_origin" value="{{ u.product_origin }}" placeholder="{{ u.product_origin }}"> 
+    
+            <input class="btn btn-primary" type="submit" value="update">
+    
+        </form>
+    
+    
+    </div>
+  </div>
+
+</div>
+
+
+
+  <!-- /.content-wrapper -->
+  {% include 'footer.html' %}
+  
+  <!-- Control Sidebar -->
+  <aside class="control-sidebar control-sidebar-dark">
+    <!-- Control sidebar content goes here -->
+  </aside>
+  <!-- /.control-sidebar -->
+</div>
+<!-- ./wrapper -->
+
+{% include 'scripts.html' %}
+</body>
+</html>
+
+
+<!doctype html>
+{% load static %}
+
+<html lang="en">
+<head>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+		  integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Update</title>
+
+</head>
+<body>
+
+
+
+
+<div class="container">
+    <br>
+    <h2>Product Update</h2>
+    <hr>
+
+    {% comment %} action="/update_product/{{ u.id }}"action="/update_product/{{ u.id }}" {% endcomment %}
+    <form  method="POST">
+
+        {% csrf_token %}
+        <label class="form-group" for="name">Product Code: </label>
+        <input class="form-control" type="text" name="product_code" value="{{ u.product_code }}" placeholder="{{ u.product_code }}">
+
+        <label class="form-group" for="phone">Product Name: </label>
+        <input class="form-control" type="text" name="product_name" value="{{ u.product_name }}" placeholder="{{ u.product_name }}">
+
+        <label class="form-group" for="work_info">Product Category: </label>
+        <input class="form-control" type="text" name="product_category" value="{{ u.product_category }}" placeholder="{{ u.product_category }}">
+        
+        <label class="form-group" for="name">Quantity: </label>
+        <input class="form-control" type="text" name="product_quantity" value="{{ u.product_quantity }}" placeholder="{{ u.product_quantity }}">
+
+        <label class="form-group" for="name">Seller: </label>
+        <input class="form-control" type="text" name="product_seller" value="{{ u.product_seller }}" placeholder="{{ u.product_seller }}">
+
+        <label class="form-group" for="name">Purchase Price: </label>
+        <input class="form-control" type="text" name="product_purchase_price" value="{{ u.product_purchase_price }}" placeholder="{{ u.product_purchase_price }}">
+
+        <label class="form-group" for="phone">Selling Price: </label>
+        <input class="form-control" type="text" name="product_selling_price" value="{{ u.product_selling_price }}" placeholder="{{ e.product_selling_price }}">
+
+        <label class="form-group" for="work_info">Origin: </label>
+        <input class="form-control" type="text" name="product_origin" value="{{ u.product_origin }}" placeholder="{{ u.product_origin }}"> 
+
+        <input class="btn btn-primary" type="submit" value="update">
+
+    </form>
+
+
+</div>
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+            integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+            crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"
+            integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN"
+            crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"
+            integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV"
+            crossorigin="anonymous"></script>
+
+</body>
+
+</html> 

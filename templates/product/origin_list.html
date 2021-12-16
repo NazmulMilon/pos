@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+
+
+<!-- head -->
+{% include 'head.html' %}
+
+<body class="hold-transition sidebar-mini layout-fixed">
+<div class="wrapper">
+
+  <!-- Preloader -->
+  <div class="preloader flex-column justify-content-center align-items-center">
+    <img class="animation__shake" src="{% static 'dist/img/AdminLTELogo.png' %}" alt="AdminLTELogo" height="60" width="60">
+  </div>
+
+<!-- Navbar -->
+{% include 'navbar.html' %}
+<!-- /.navbar -->
+
+<!-- Main Sidebar Container -->
+
+{% include 'sidebar.html' %}
+
+
+  <!-- Content Wrapper. Contains page content -->
+  <div class="content-wrapper">
+    <!-- Content Header (Page header) -->
+    <div class="content-header">
+      <div class="container-fluid">
+        <div class="row mb-2">
+          <div class="col-sm-6">
+            <h1 class="m-0 mb-3">Origin List</h1>            
+          </div>
+          <div class="col-sm-6">
+            <div class="card-header">
+                <div class="card-tools">
+                    <ul class="nav nav-pills ml-auto">                   
+                    <li class="nav-item">
+                        <a class="nav-link active" href="{% url 'add_origin' %}">Create Origin</a>
+                    </li>
+                  </ul>
+                </div>
+            </div>           
+          </div>                  
+        </div>                
+        <table class="table">                                    
+            <thead class="thead-dark">                             
+                <tr>                            
+                    <th scope="col">Name</th>                    
+                    <th scope="col">Action</th>
+                </tr>
+            </thead>                        
+            <tbody>      
+                {% for cat in origin %}                          
+                    <tr>                                                                                    
+                      <td>{{cat.origin_name}}</td>
+                      <td><a class="text-success" href="{% url 'update_origin' cat.id %}">Update</a> || <a class="text-danger" href="{% url 'delete_origin' cat.id %}">Delete</a></td>                      
+                    </tr>                  
+                {% endfor %}                
+            </tbody>
+        </table>
+      </div>        
+    </div>   
+  </div>
+
+
+  <!-- /.content-wrapper -->
+  {% include 'footer.html' %}
+  
+  <!-- Control Sidebar -->
+  <aside class="control-sidebar control-sidebar-dark">
+    <!-- Control sidebar content goes here -->
+  </aside>
+  <!-- /.control-sidebar -->
+</div>
+<!-- ./wrapper -->
+
+{% include 'scripts.html' %}
+</body>
+</html>

@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 {% load static %}
+<html lang="en">
 
 
 <!-- head -->
@@ -30,14 +31,14 @@
       <div class="container-fluid">
         <div class="row mb-2">
           <div class="col-sm-6">
-            <h1 class="m-0 mb-3">Category</h1>            
+            <h1 class="m-0 mb-3">Country</h1>            
           </div>
           <div class="col-sm-6">
             <div class="card-header">
                 <div class="card-tools">
                     <ul class="nav nav-pills ml-auto">                   
                     <li class="nav-item">
-                        <a class="nav-link active" href="{% url 'list_category' %}">Category List</a>
+                        <a class="nav-link active" href="{% url 'list_origin' %}">Country List</a>
                     </li>
                   </ul>
                 </div>
@@ -49,8 +50,8 @@
           {% csrf_token %}
             <div class="row">
                 <div class="form-group col-sm-6">
-                    <label for="category" class="text-secondary"><small>Category Name*</small></label>
-                    <input type="text" id="category" class="form-control" name='category_name'>
+                    <label for="category" class="text-secondary"><small>Origin Name*</small></label>
+                    <input type="text" id="category" class="form-control" name='origin_name'>
                 </div>
             </div>
             <section class="content">        
@@ -68,46 +69,6 @@
       </div>        
     </div>   
   </div>
-  {% comment %} <body>
-    
-    <form action="add_category" method="POST">
-      {% csrf_token %}
-      
-      <div class="container h-100">
-        <nav class="main-header navbar navbar-expand navbar-white navbar-light navbar-right">
-          <!-- Left navbar links -->
-          <ul class="navbar-nav text-right">
-            <li class="nav-item text-right">
-              <a class="nav-link" data-widget="pushmenu" href="#" role="button"><i class="fas fa-bars"></i></a>
-            </li>
-            <li class="nav-item d-none d-sm-inline-block text-right">
-              <button type="submit" class="text-right btn btn-primary btn-customized mb-2">Add</button>
-            </li>
-            
-          </ul>
-        </nav>
-        <div class="row h-100 justify-content-center align-items-center">
-    
-            <div class="col-10 col-md-8 col-lg-6 mt-4">
-                <!-- Form -->
-                  <h2>Category</h2>
-                    
-                    <!-- Input fields -->
-                    <div class="form-group">
-                        
-                        <input type="text" class="form-control username" id="category_name" placeholder="Category" name="category_name">
-                    </div>
-                    
-                    <button type="submit" class="btn btn-primary btn-customized mb-2">Add</button>
-                    <!-- End input fields -->
-                <!-- Form end -->
-            </div>
-        </div>
-      </div>
-    </form>
-  
-  </body> {% endcomment %}
-
 
   <!-- /.content-wrapper -->
   {% include 'footer.html' %}
@@ -125,7 +86,10 @@
 </html>
 
 
-{% comment %} <html lang="en">
+
+{% comment %} <!DOCTYPE html>
+{% load static %}
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -136,11 +100,11 @@
 </head>
 
 <body>
-    <form action="add_category" method="POST">
+    <form action="add_origin" method="POST">
         {% csrf_token %}
         <div class="form-group col-6 m-2">
-          <label for="origin name">Add Category</label>
-          <input type="text" class="form-control " id="origin name" name="category_name" placeholder="Category Name">
+          <label for="origin name">Add Country/Origin</label>
+          <input type="text" class="form-control " id="origin name" name="origin_name" placeholder="Origin Name">
         </div>
 
         <div class="form-group">

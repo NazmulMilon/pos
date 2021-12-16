@@ -27,6 +27,29 @@ def registration(request):
             return HttpResponse('Your Registration has successfully done')
     return render(request, 'registration.html')
 
+# def update_user(request, id):
+#     u = UserProfile.objects.get(id=id)
+#     user_obj=UserProfile.objects.all()
+
+#     if request.method=="POST":
+
+#         u.first_name=request.POST.get('first_name')
+#         u.last_name=request.POST.get('last_name')
+#         u.user_name=request.POST.get('user_name')
+#         u.email=request.POST.get('email')
+#         u.password=request.POST.get('password')
+#         u.phone=request.POST.get('phone')
+
+#         u.save()
+
+#     context = {
+#         'get_object': u,
+#         'user_object':user_obj,
+
+#     }
+#     return render(request, 'update_user.html', context)
+
+
 def user_login(request):
     if request.method=="POST":
         user_name=request.POST['user_name']

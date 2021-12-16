@@ -1,0 +1,136 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}  
+  <!-- Content Wrapper. Contains page content -->
+  <div class="content-wrapper">
+    <!-- Content Header (Page header) -->
+    <div class="content-header">
+      <div class="container-fluid">
+        <div class="row mb-2">
+          <div class="col-sm-6">
+            <h1 class="m-0 mb-3">Product</h1>            
+          </div>
+          <div class="col-sm-6">
+            <div class="card-header">
+                <div class="card-tools">
+                    <ul class="nav nav-pills ml-auto">                   
+                    <li class="nav-item">
+                        <a class="nav-link active" href="{% url 'show_product' %}">Product List</a>
+                    </li>
+                  </ul>
+                </div>
+            </div>           
+          </div>                  
+        </div>
+        <hr>
+        <form  method="POST">
+    
+          {% csrf_token %}
+          <label class="form-group" for="name">Product Code: </label>
+          <input class="form-control" type="text" name="product_code" value="{{ u.product_code }}" placeholder="{{ u.product_code }}">
+  
+          <label class="form-group" for="phone">Product Name: </label>
+          <input class="form-control" type="text" name="product_name" value="{{ u.product_name }}" placeholder="{{ u.product_name }}">
+  
+
+          <label class="form-group" for="work_info">Product Category: </label>
+          <select name="product_category" id="" class="form-control" required>
+            {% for c in category %}                          
+                <option value="{{c.id}}"  >{{c.category_name}}                                
+                </option>                                                   
+            {% endfor %}  
+          </select>   
+          {% comment %} <input class="form-control" type="text" name="product_category" value="{{ c.category_name }}" placeholder="{{ u.product_category }}"> {% endcomment %}
+          
+
+          <label class="form-group" for="name">Quantity: </label>
+          <input class="form-control" type="text" name="product_quantity" value="{{ u.product_quantity }}" placeholder="{{ u.product_quantity }}">
+  
+
+          <label class="form-group" for="name">Seller: </label>
+          <select name="product_seller" id="" class="form-control" required>
+            {% for c in seller %}                          
+                <option value="{{c.id}}">{{c.seller_name}}                                
+                </option>                                                   
+            {% endfor %}  
+          </select>  
+          {% comment %} <input class="form-control" type="text" name="product_seller" value="{{ u.product_seller }}" placeholder="{{ u.product_seller }}"> {% endcomment %}
+  
+
+          <label class="form-group" for="name">Purchase Price: </label>
+          <input class="form-control" type="text" name="product_purchase_price" value="{{ u.product_purchase_price }}" placeholder="{{ u.product_purchase_price }}">
+  
+          <label class="form-group" for="phone">Selling Price: </label>
+          <input class="form-control" type="text" name="product_selling_price" value="{{ u.product_selling_price }}" placeholder="{{ e.product_selling_price }}">
+  
+          <label class="form-group" for="work_info">Origin: </label>
+          <input class="form-control" type="text" name="product_origin" value="{{ u.product_origin }}" placeholder="{{ u.product_origin }}"> 
+  
+          <input class="btn btn-primary" type="submit" value="update">
+  
+      </form>
+        {% comment %} <form action="" class="form" method="POST">
+          {% csrf_token %}
+            <div class="row">
+                <div class="form-group col-sm-6">
+                    <label for="category" class="text-secondary"><small>Product Name*</small></label>
+                    <input type="text" id="category" class="form-control" name='product_name' value="{{product.product_name}}">
+                </div>
+                <div class="form-group col-sm-6">
+                    <label for="category" class="text-secondary"><small>Product code*</small></label>
+                    <input type="text" id="category" class="form-control" name='product_code' value="{{product.product_code}}">
+                </div>
+                <div class="form-group col-sm-6">
+                    <label for="category" class="text-secondary"><small>Product purchase price*</small></label>
+                    <input type="text" id="category" class="form-control" name='product_purchase_price' value="{{product.product_purchase_price}}">
+                </div>
+                <div class="form-group col-sm-6">
+                    <label for="category" class="text-secondary"><small>Product selling price*</small></label>
+                    <input type="text" id="category" class="form-control" name='product_selling_price' value="{{product.product_selling_price}}">
+                </div>                
+                <div class="form-group col-sm-6">
+                    <label for="country" class="text-secondary"><small>Country Name*</small></label>
+                    <select name="country" id="" class="form-control" required>
+                        {% for country in countries %}                          
+                            <option value="{{country.id}}">{{country.country_name}}                                     
+                            </option>                                                   
+                        {% endfor %}                        
+                    </select>                   
+                </div>
+                <div class="form-group col-sm-6">
+                    <label for="category" class="text-secondary"><small>Seller Name*</small></label>
+                    <select name="seller" id="" class="form-control" required>
+                        {% for seller in sellers %}                          
+                            <option value="{{seller.id}}">{{seller.seller_name}}                                     
+                            </option>                                                   
+                        {% endfor %}                        
+                    </select>                   
+                </div>
+                <div class="form-group col-sm-6">
+                    <label for="category" class="text-secondary"><small>Category Name*</small></label>
+                    <select name="category" id="" class="form-control" required>
+                        {% for cat in categories %}                          
+                            <option value="{{cat.id}}">{{cat.category_name}}                                     
+                            </option>                                                   
+                        {% endfor %}                        
+                    </select>                   
+                </div>
+            </div>
+            <section class="content">        
+                <div class="card-header">
+                    <div class="card-tools">
+                        <ul class="nav nav-pills ml-auto">                   
+                        <li class="nav-item">                 
+                          <button class="nav-link active" type="submit">Create</button>                                    
+                        </li>
+                      </ul>
+                    </div>
+                </div>          
+            </section> 
+        </form>         {% endcomment %}
+      </div>        
+    </div>   
+  </div>
+
+  {% endblock  %}
+  

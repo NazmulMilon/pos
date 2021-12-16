@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+{% load static %}
+
+
+<!-- head -->
+{% include 'head.html' %}
+
+<body class="hold-transition sidebar-mini layout-fixed">
+<div class="wrapper">
+
+  <!-- Preloader -->
+  <div class="preloader flex-column justify-content-center align-items-center">
+    <img class="animation__shake" src="{% static 'dist/img/AdminLTELogo.png' %}" alt="AdminLTELogo" height="60" width="60">
+  </div>
+
+<!-- Navbar -->
+{% include 'navbar.html' %}
+<!-- /.navbar -->
+
+<!-- Main Sidebar Container -->
+
+{% include 'sidebar.html' %}
+
+
+  <!-- Content Wrapper. Contains page content -->
+
+  <div class="content-wrapper">
+    <!-- Content Header (Page header) -->
+    <div class="content-header">
+      <div class="container-fluid">
+        <div class="row mb-2">
+          <div class="col-sm-6">
+            <h1 class="m-0 mb-3">Category</h1>            
+          </div>
+          <div class="col-sm-6">
+            <div class="card-header">
+                <div class="card-tools">
+                    <ul class="nav nav-pills ml-auto">                   
+                    <li class="nav-item">
+                        <a class="nav-link active" href="{% url 'list_category' %}">Category List</a>
+                    </li>
+                  </ul>
+                </div>
+            </div>           
+          </div>                  
+        </div>
+        <hr>
+        <form action="/update_category/{{ u.id }}/" class="form" method="POST">
+          {% csrf_token %}
+            <div class="row">
+                <div class="form-group col-sm-6">
+                    <label for="category" class="text-secondary"><small>Category Name*</small></label>
+                    <input type="text" id="category" class="form-control" name="category_name" value="{{ u.category_name }}" placeholder="{{ u.category_name }}"">
+                </div>
+            </div>
+            <section class="content">        
+                <div class="card-header">
+                    <div class="card-tools">
+                        <ul class="nav nav-pills ml-auto">                   
+                        <li class="nav-item">                 
+                          {% comment %} <button class="nav-link active" type="submit">Update</button>  {% endcomment %}
+                          <input class="btn btn-primary" type="submit" value="update">                            
+                        </li>
+                      </ul>
+                    </div>
+                </div>          
+            </section> 
+        </form>        
+      </div>        
+    </div>   
+  </div>
+
+  <!-- /.content-wrapper -->
+  {% include 'footer.html' %}
+  
+  <!-- Control Sidebar -->
+  <aside class="control-sidebar control-sidebar-dark">
+    <!-- Control sidebar content goes here -->
+  </aside>
+  <!-- /.control-sidebar -->
+</div>
+<!-- ./wrapper -->
+
+{% include 'scripts.html' %}
+</body>
+</html>
+
+
+
+{% comment %} {% load static %}
+
+  <!-- Content. Contains page content -->
+  <div class="content-wrapper">
+    <!-- Content Header (Page header) -->
+    <div class="content-header">
+      <div class="container-fluid">
+        <div class="row mb-2">
+          <div class="col-sm-6">
+            <h1 class="m-0 mb-3">Category</h1>            
+          </div>
+          <div class="col-sm-6">
+            <div class="card-header">
+                <div class="card-tools">
+                    <ul class="nav nav-pills ml-auto">                   
+                    <li class="nav-item">
+                        <a class="nav-link active" href="{% url 'update_category' %}">Category List</a>
+                    </li>
+                  </ul>
+                </div>
+            </div>           
+          </div>                  
+        </div>
+        <hr>
+        <form action="" class="form" method="POST">
+          {% csrf_token %}
+            <div class="row">
+                <div class="form-group col-sm-6">
+                    <label for="category" class="text-secondary"><small>Category Name*</small></label>
+                    <input type="text" id="category" class="form-control" name='category_name' value="{{ u.category_name }}" placeholder="{{ u.category_name }}>
+                </div>
+            </div>
+            <section class="content">        
+                <div class="card-header">
+                    <div class="card-tools">
+                        <ul class="nav nav-pills ml-auto">                   
+                        <li class="nav-item">                 
+                          <button class="nav-link active" type="submit">Update</button>                                    
+                        </li>
+                      </ul>
+                    </div>
+                </div>          
+            </section> 
+        </form>        
+      </div>        
+    </div>   
+  </div>
+  <!-- /.content-wrapper --> {% endcomment %}
